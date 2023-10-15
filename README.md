@@ -24,6 +24,7 @@ http://localhost:8080/drones/
 
 For check all drones open that link
 http://localhost:8080/drones/all
+
 For check all medications open that link
 http://localhost:8080/medic
 
@@ -60,4 +61,4 @@ For check drone battery level for a given drone use GET request with param "dron
 http://localhost:8080/drones/{id}
 you can see all data about given drone
 
-# DRONES FINISH solution
+#№№№ DRONES FINISH solution
