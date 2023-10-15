@@ -1,72 +1,63 @@
-## Drones
+# DRONES solution
 
-[[_TOC_]]
+### Prerequisites
 
----
+To run the application, you need to have it installed on your machine:
 
-:scroll: **START**
+- Java 17
+- Maven
+- My SQL
+
+### Build and run
+
+To build and run the application go to the project root and execute the next Maven command in your terminal:
+
+```
+mvn spring-boot:run
+```
+
+You may check that application is running by opening the link:
+http://localhost:8080/drones/
 
 
-### Introduction
+## Documentation
 
-There is a major new technology that is destined to be a disruptive force in the field of transportation: **the drone**. Just as the mobile phone allowed developing countries to leapfrog older technologies for personal communication, the drone has the potential to leapfrog traditional transportation infrastructure.
+For check all drones open that link
+http://localhost:8080/drones/all
+For check all medications open that link
+http://localhost:8080/medic
 
-Useful drone functions include delivery of small items that are (urgently) needed in locations with difficult access.
+#The service allow:
+For registering a drone use POST request
+with link and JSON body
+http://localhost:8080/drones/register
+```json
+    {
+        "serial_number": "009",
+        "model_id": 3,
+        "weight_limit": 300,
+        "battery": 50
+    }
+```
 
----
+For load a drone with medication use POST request
+with link and JSON body
+http://localhost:8080/load
+```json
+	{
+		"drone_id":1,
+		"medication_id":2
+	}
+```
 
-### Task description
+For check all loaded medication items for a given drone use GET request with param "drone_id"
+http://localhost:8080/load/{id}
 
-We have a fleet of **10 drones**. A drone is capable of carrying devices, other than cameras, and capable of delivering small loads. For our use case **the load is medications**.
+For check available drones for loading use GET request
+http://localhost:8080/drones/available
 
-A **Drone** has:
-- serial number (100 characters max);
-- model (Lightweight, Middleweight, Cruiserweight, Heavyweight);
-- weight limit (500gr max);
-- battery capacity (percentage);
-- state (IDLE, LOADING, LOADED, DELIVERING, DELIVERED, RETURNING).
+For check drone battery level for a given drone use GET request with param "drone_id"
+http://localhost:8080/drones/{id}
+you can see all data about given drone
 
-Each **Medication** has: 
-- name (allowed only letters, numbers, ‘-‘, ‘_’);
-- weight;
-- code (allowed only upper case letters, underscore and numbers);
-- image (picture of the medication case).
-
-Develop a service via REST API that allows clients to communicate with the drones (i.e. **dispatch controller**). The specific communicaiton with the drone is outside the scope of this task. 
-
-The service should allow:
-- registering a drone;
-- loading a drone with medication items;
-- checking loaded medication items for a given drone; 
-- checking available drones for loading;
-- check drone battery level for a given drone;
-
-> Feel free to make assumptions for the design approach. 
-
----
-
-### Requirements
-
-While implementing your solution **please take care of the following requirements**: 
-
-#### Functional requirements
-
-- There is no need for UI;
-- Prevent the drone from being loaded with more weight that it can carry;
-- Prevent the drone from being in LOADING state if the battery level is **below 25%**;
-- Introduce a periodic task to check drones battery levels and create history/audit event log for this.
-
----
-
-#### Non-functional requirements
-
-- Input/output data must be in JSON format;
-- Your project must be buildable and runnable;
-- Your project must have a README file with build/run/test instructions (use DB that can be run locally, e.g. in-memory, via container);
-- Any data required by the application to run (e.g. reference tables, dummy data) must be preloaded in the database;
-- Unit tests;
-- Use a framework of your choice, but popular, up-to-date, and long-term support versions are recommended.
-
----
-
-:scroll: **END** 
+# DRONES FINISH solution
