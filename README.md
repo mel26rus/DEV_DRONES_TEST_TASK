@@ -52,27 +52,29 @@ For load a drone with medication use POST request
 with link and JSON body
 http://localhost:8080/load
 ```json
-    {
-        "id": 1,
-        "serial_number": "James007",
+{
+    "droneScheme": {
+        "id": 10,
+        "serial_number": "Mavic007",
         "model": {
-            "id": 1,
-            "title": "Lightweight"
+            "id": 4,
+            "title": "Heavyweight"
         },
-        "weight_limit": 300,
+        "weight_limit": 500,
         "battery": 100,
         "state": {
-            "id": 3,
-            "title": "LOADED"
+            "id": 1,
+            "title": "IDLE"
         }
     },
-    {
-        "id": 1,
-        "name": "Analgin",
-        "weight": 300,
-        "code": "AN55",
-        "image": "an.png"
+    "medicationScheme": {
+        "id": 2,
+        "name": "NUMB",
+        "weight": 100,
+        "code": "NU66",
+        "image": "numb.png"
     }
+}
 ```
 
 For check all loaded medication items for a given drone use GET request with param "drone_id"
