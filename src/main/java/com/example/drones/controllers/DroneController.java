@@ -20,11 +20,8 @@ import static com.example.drones.BaseResponse.*;
 public class DroneController {
 
 
-//    @Autowired
     private DroneStateInterface droneStateInterface;
-//    @Autowired
     private DroneModelInterface droneModelInterface;
-//    @Autowired
     private DroneInterface droneInterface;
 
     @GetMapping
@@ -33,11 +30,8 @@ public class DroneController {
     }
 
     public DroneController(DroneStateInterface droneStateInterface, DroneModelInterface droneModelInterface, DroneInterface droneInterface) {
-//        if (this.droneStateInterface == null)
             this.droneStateInterface = droneStateInterface;
-//        if (this.droneModelInterface == null)
             this.droneModelInterface = droneModelInterface;
-//        if (this.droneInterface == null)
             this.droneInterface = droneInterface;
     }
 
@@ -48,11 +42,11 @@ public class DroneController {
 
     @PostMapping("/register")
     public BaseResponse insertDrone(@RequestBody Drone drone) {
-        if ((drone.getSerial_number() == null) || (drone.getModel_id() == null))
+        if ((drone.getSerial_number() == null) || (drone.getDroneModelScheme() == null))
             return new BaseResponse(UNKNOWN_DATA_STATUS, CODE_ERROR_DATA);
         DroneScheme droneScheme = new DroneScheme();
         droneScheme.setBattery(drone.getBattery());
-        Optional<DroneModelScheme> modelScheme = droneModelInterface.findById(drone.getModel_id());
+        Optional<DroneModelScheme> modelScheme = droneModelInterface.findById(drone.getDroneModelScheme().getId());
         droneScheme.setModel(modelScheme.get());
         droneScheme.setSerial_number(drone.getSerial_number());
         droneScheme.setWeight_limit(drone.getWeight_limit());

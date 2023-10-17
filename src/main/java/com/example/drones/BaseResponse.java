@@ -5,6 +5,9 @@ public class BaseResponse {
     public static final String SUCCESS_STATUS = "Success";
     public static final String ERROR_STATUS = "Error";
     public static final String ERROR_DRONE_NOT_READY = "Drone is not ready";
+
+    public static final String ERROR_WRONG_DRONE_DATA = "Wrong Drone data";
+    public static final String ERROR_WRONG_MED_DATA = "Wrong Medication data";
     public static final String ERROR_DRONE_NOT_CHARGED = "Drone is not charged up to 25%";
     public static final String ERROR_DRONE_FULL = "Drone is full or have no free weight limit";
     public static final String UNKNOWN_DATA_STATUS = "unknown data";

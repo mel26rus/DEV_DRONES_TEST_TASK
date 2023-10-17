@@ -1,5 +1,7 @@
 package com.example.drones.models;
 
+
+
 import com.example.drones.schemes.DroneScheme;
 import com.example.drones.schemes.MedicationScheme;
 

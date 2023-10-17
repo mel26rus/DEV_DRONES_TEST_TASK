@@ -45,7 +45,7 @@ class DroneControllerTest {
     }
     @Test
     void insertDrone() {
-        Drone drone = new Drone("test", 1L,100,100, 1L);
+        Drone drone = new Drone("test", droneModelInterface.findById(1L).get() ,100,100,droneStateInterface.findById(1L).get());
         Long size = droneInterface.count();
         new DroneController(droneStateInterface, droneModelInterface, droneInterface).insertDrone(drone);
         assertThat(droneInterface.findAll()).hasSize((int) (size+1));

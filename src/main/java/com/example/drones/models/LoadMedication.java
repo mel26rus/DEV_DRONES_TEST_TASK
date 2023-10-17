@@ -1,33 +1,35 @@
 package com.example.drones.models;
 
+import com.example.drones.schemes.DroneScheme;
+import com.example.drones.schemes.MedicationScheme;
+
 import javax.validation.constraints.NotNull;
 
 public class LoadMedication {
     @NotNull
-    Long drone_id;
+    DroneScheme droneScheme;
     @NotNull
-    Long medication_id;
+    MedicationScheme medicationScheme;
 
 
-    public LoadMedication(Long drone_id, Long medication_id) {
-        this.drone_id = drone_id;
-        this.medication_id = medication_id;
+    public LoadMedication(DroneScheme droneScheme, MedicationScheme medicationScheme) {
+        this.droneScheme = droneScheme;
+        this.medicationScheme = medicationScheme;
     }
 
-    public Long getDrone_id() {
-        return drone_id;
+    public DroneScheme getDroneScheme() {
+        return droneScheme;
     }
 
-    public void setDrone_id(Long drone_id) {
-        this.drone_id = drone_id;
+    public void setDroneScheme(DroneScheme droneScheme) {
+        this.droneScheme = droneScheme;
     }
 
-    public Long getMedication_id() {
-        return medication_id;
+    public MedicationScheme getMedicationScheme() {
+        return medicationScheme;
     }
 
-    public void setMedication_id(Long medication_id) {
-        this.medication_id = medication_id;
+    public void setMedicationScheme(MedicationScheme medicationScheme) {
+        this.medicationScheme = medicationScheme;
     }
-
 }

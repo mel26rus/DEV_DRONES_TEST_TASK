@@ -17,7 +17,7 @@ mvn spring-boot:run
 ```
 
 You may check that application is running by opening the link:
-http://localhost:8080/drones/
+http://localhost:8080/drones
 
 
 ## Documentation
@@ -33,22 +33,46 @@ For registering a drone use POST request
 with link and JSON body
 http://localhost:8080/drones/register
 ```json
-    {
-        "serial_number": "009",
-        "model_id": 3,
-        "weight_limit": 300,
-        "battery": 50
+{
+    "serial_number": "009",
+    "droneModelScheme": {
+        "id": 3,
+        "title": "Cruiserweight"
+    },
+    "weight_limit": 300,
+    "battery": 50,
+    "droneStateScheme": {
+        "id": 1,
+        "title": "IDLE"
     }
+}
 ```
 
 For load a drone with medication use POST request
 with link and JSON body
 http://localhost:8080/load
 ```json
-	{
-		"drone_id":1,
-		"medication_id":2
-	}
+    {
+        "id": 1,
+        "serial_number": "James007",
+        "model": {
+            "id": 1,
+            "title": "Lightweight"
+        },
+        "weight_limit": 300,
+        "battery": 100,
+        "state": {
+            "id": 3,
+            "title": "LOADED"
+        }
+    },
+    {
+        "id": 1,
+        "name": "Analgin",
+        "weight": 300,
+        "code": "AN55",
+        "image": "an.png"
+    }
 ```
 
 For check all loaded medication items for a given drone use GET request with param "drone_id"
@@ -62,3 +86,4 @@ http://localhost:8080/drones/{id}
 you can see all data about given drone
 
 #№№№ DRONES FINISH solution
+Вход. Запуск TPerformTasksThread

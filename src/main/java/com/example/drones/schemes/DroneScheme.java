@@ -39,6 +39,15 @@ public class DroneScheme implements Serializable {
         this.state = state;
     }
 
+    public DroneScheme(long id, String serial_number, DroneModelScheme model, int weight_limit, int battery, DroneStateScheme state) {
+        this.id = id;
+        this.serial_number = serial_number;
+        this.model = model;
+        this.weight_limit = weight_limit;
+        this.battery = battery;
+        this.state = state;
+    }
+
     public long getId() {
         return id;
     }
@@ -88,14 +97,15 @@ public class DroneScheme implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "DroneScheme{" +
-                "id=" + id +
-                ", serial_number='" + serial_number + '\'' +
-                ", model=" + model +
-                ", weight_limit=" + weight_limit +
-                ", battery=" + battery +
-                ", state=" + state +
-                '}';
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        DroneScheme droneScheme = (DroneScheme) obj;
+        return id == droneScheme.getId() &&
+                serial_number.equals(droneScheme.getSerial_number()) &&
+                weight_limit == droneScheme.getWeight_limit() &&
+                battery == droneScheme.getBattery() &&
+                model.equals(droneScheme.getModel()) &&
+                state.equals(droneScheme.getState());
     }
 }
